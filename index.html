@@ -7,18 +7,78 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- application template. This is the main container of the SPA -->
   <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
-
-    {{outlet}}
+    {{#link-to 'index' class="headerDiv"}}
+      <img src="images/samoca.png" />
+    {{/link-to}}
+    <ul class="topNav">
+      {{#link-to 'about' class="btn"}}About{{/link-to}}
+      {{#link-to 'collections' class="btn"}}Collections{{/link-to}}
+      {{#link-to 'exhibits' class="btn"}}Exhibits{{/link-to}}
+      {{#link-to 'notes' class="btn"}}Visitor Notes{{/link-to}}
+    </ul>
+    {{outlet}}   
   </script>
 
+  <!-- index.html is the landing page. It gets rendered into the application template -->
   <script type="text/x-handlebars" id="index">
-    <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
+    <section id="home" class="pageClass">
+      <h2 class="homepageHeader">Welcome to Samoca</h2>
+      <div class="homePageDiv">
+        <img src="images/birds.png" />
+        <div class="homePageDiv homePageCopy">
+          SAMOCA (San Angelico Museum of Contemporary Art) is a museu with a focus on modern art from the last 75 years. Since its inception in 1973, the museum has been the leader in representing modern contemporary art and design. The museum is located in the heart of Ventura, California, ninety iles north of Los Angeles.
+          <br><br>
+          {{#link-to 'about'}}<strong>learn more &raquo;</strong>{{/link-to}}
+        </div>
+      </div>
+
+    </section>
+  </script>
+
+  <!-- about template -->
+  <script type="text/x-handlebars" id="about">
+    <section>
+      <h2>Celebrating the Best of Modern Art</h2>
+
+      <p>Located in the heart of Ventura, ninety miles north of Los Angeles, SAMOCA (San Angelico Museum of Contemporary Art) focuses its efforts on art of the last 75 years. Since its inception in 1973, it has been in the front ranks of modern museums.</p>
+
+      <h2>An Introduction</h2>
+
+      <p>SAMOCA honors Saint Angelico by promoting and nourishing of the arts. It offers a creative mixture of visual and performing arts, alongside music and craft, and is suitable for the entire family. The museum searches out unique talents and accomplishments of up-and-coming artists found within the diverse and daring California community and beyond.</p>
+
+      <p>Through our varied collections and staged events, and with the support of our patrons and volunteers, the museum helps to promote the importance of modern art in the modern world. Influences such as pop, cinema, and current events, permeate our halls.</p>
+    </section>
+  </script>
+
+  <!-- collections template -->
+  <script type="text/x-handlebars" id="components/single-collection">
+    <strong>{{title}}</strong>
+    <br>
+    {{copy}}
+    <br>
+    <img {{bind-attr src=image}} class="collectionImage" />
+  </script>
+
+  <script type="text/x-handlebars" id="collections">
+    {{#each model as |col|}}
+      {{single-collection title=col.title copy=col.copy image=col.image}}
     {{/each}}
-    </ul>
+  </script>
+
+  <script type="text/x-handlebars" id="exhibits">
+    <div class="pageClass">
+      <seciton class="exhibitSection">
+        <h2>Exhibits</h2>
+        This is where ALL our exhibits will be listed
+      </seciton>
+    </div>
+  </script> 
+
+  <script type="text/x-handlebars" id="exhibit">
+    <article class="singleExhibitContent">
+    </article>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>

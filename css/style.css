@@ -1,4 +1,54 @@
 /* Put your CSS here */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 .ember-application {
-    margin: 20px;
+    position: relative;
+}
+
+.headerDiv {
+    width: 100%;
+    position: relative;
+}
+.headerDiv > img{
+    width: 25%;
+    margin: 0 auto;
+    display: block;
+}
+
+.topNav {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.btn {
+    margin-right: 5%;
+    padding: 5px;
+    display: inline;
+    color: white;
+    border: 1px solid green;
+    border-radius: 2px;
+    background-color: limegreen;
+    text-decoration: none;
+}
+
+.homePageDiv {
+    padding: 2%;
+    border: 2px solid black;
+}
+.homePageDiv > img {
+    width: 46%;
+    display: inline-block;
+    border: 5px solid black;
+}
+.homePageCopy {
+    width: 46%;
+    display: inline-block;
+    float: right;
+}
+.collectionImage {
+    width: 80px;
+    height: 50px;
 }
